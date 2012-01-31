@@ -11,3 +11,13 @@ Enjoy..
 This is Based on Rovio Development
 ..tq.
 
+
+Usage:
+  - Install ROS
+  - Create Working DIR
+  - add Working dir to path
+  - test use with 'roscd'
+  - rosdep install lowrabot
+  - rosmake lowrabot
+  - roslaunch lowrabot laura.launch
+
