@@ -1,0 +1,17 @@
+<launch>
+
+  <env name="ROS_MASTER_URI" value="http://ros-robot:11311"/>
+
+	<!--
+	<group ns="audiovideo">
+	<node pkg="mjpeg_server" name="mjpeg_server" type="mjpeg_server"/>
+	</group>
+	-->
+
+  <node pkg="image_view" type="image_view" name="image_view" args="image:=/gscam/image_raw"/>
+
+  <node name="audio_play" pkg="audio_play" type="audio_play" output="screen">
+    <param name="dst" value="alsasink"/>
+  </node>
+
+</launch>
