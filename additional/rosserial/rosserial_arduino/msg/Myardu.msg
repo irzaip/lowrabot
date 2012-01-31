@@ -1,0 +1,14 @@
+uint16  ab_dir
+uint16  kk_dir
+uint16  ab_val
+uint16  kk_val
+uint16  joy1
+uint16  joy2
+uint16  joy3
+uint16  joy4
+uint16  joy5
+uint16  joy6
+uint16  joy7
+uint16  joy8
+uint16  joy9
+uint16  joy10
