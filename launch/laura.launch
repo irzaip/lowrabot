@@ -1,0 +1,11 @@
+<launch>
+        <node pkg="rovio" name="rovio" type="Interface.py">
+            <param name="rovioIP" value="192.168.1.139" />
+            <param name="rovioUser" value="admin" />
+            <param name="rovioPass" value="penguins" />
+            <param name="getPos" value="1" />
+            <param name="getImage" value="0" />
+            <param name="getVel" value="1" />
+            <param name="/use_sim_time" value="TRUE" />
+        </node>
+</launch>

@@ -1,0 +1,15 @@
+<launch>
+        <node pkg="rovio" name="rovio" type="Interface.py">
+            <param name="rovioIP" value="10.84.62.190" />
+            <param name="rovioUser" value="admin" />
+            <param name="rovioPass" value="roviorobo" />
+            <param name="getPos" value="1" />
+            <param name="getYaw" value="1" />
+            <param name="getImage" value="1" />
+            <param name="getVel" value="0" />
+        </node>
+	<node pkg="rovio" name="rovio_ex" type="rovio_ex.py">
+            <param name="gotoX" value="0" />
+            <param name="gotoY" value="0" />
+        </node>
+</launch>
