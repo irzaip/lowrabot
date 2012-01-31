@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #ROS imports
-import roslib; roslib.load_manifest('lorabot')
+import roslib; roslib.load_manifest('lowrabot')
 import rospy
 #imports to handle messages
 from std_msgs.msg import Int64
@@ -14,7 +14,7 @@ from geometry_msgs.msg import Vector3
 from sensor_msgs.msg import Image
 from std_msgs.msg import Header
 from std_msgs.msg import String
-from lorabot.msg import Myardu
+from lowrabot.msg import Myardu
 import cv
 
 import sensor_msgs.msg
@@ -24,69 +24,69 @@ from cv_bridge import CvBridge
 import math
 import sys
 
-import Lorabot
+import LowraBot
 
-LoraBot=0
+LBOT=0
 
 
 def getArduData(data):
-	global LoraBot
+	global LBOT
 	try:
 		#myardudata=data.data
 		#myardudata=myardudata[6:-1].split(',')[0:13]
 		rospy.loginfo(data.ab_val)
 		if data.ab_val > 0: 
-			LoraBot.setmyvar(data.ab_val)
+			LBOT.setmyvar(data.ab_val)
 		#	rospy.loginfo(int(myardudata[1]))
-		#	LoraBot.setmyvar(String(myardudata[3]))
+		#	LBOT.setmyvar(String(myardudata[3]))
 		#else:
-		#	LoraBot.setmyvar("0")			
+		#	LBOT.setmyvar("0")			
 	except:
 		pass
 		#rospy.loginfo('joystick not good')
 
 def sendHeadCommand(data):
-    global LoraBot
+    global LBOT
     rospy.loginfo('%i',data.data)
     try:
         if data.data==2:
-            LoraBot.head_up()
+            LBOT.head_up()
         elif data.data==1:
-            LoraBot.head_middle()
+            LBOT.head_middle()
         else:
-            LoraBot.head_down()
+            LBOT.head_down()
     except:
         rospy.loginfo('url timeout')
 
 def sendCommand(data):
-    global LoraBot
+    global LBOT
     speed=20
     x=data.linear.x
     y=data.linear.y
     theta=data.angular.z
     try:
         if(theta>0):
-            LoraBot.rotate_left(5)
+            LBOT.rotate_left(5)
         elif(theta<0):
-            LoraBot.rotate_right(5)
+            LBOT.rotate_right(5)
         elif(x>0 and y>0):
-            LoraBot.forward_left(speed)
+            LBOT.forward_left(speed)
         elif(x>0 and y<0):
-            LoraBot.forward_right(speed)
+            LBOT.forward_right(speed)
         elif(x<0 and y>0):
-            LoraBot.back_left(speed)
+            LBOT.back_left(speed)
         elif(x<0 and y<0):
-            LoraBot.back_right(speed)
+            LBOT.back_right(speed)
         elif(x>0):
-            LoraBot.forward(20)
+            LBOT.forward(20)
         elif(x<0):
-            LoraBot.backward(20)
+            LBOT.backward(20)
         elif(y>0):
-            LoraBot.left(10)
+            LBOT.left(10)
         elif(y<0):
-            LoraBot.right(10)
+            LBOT.right(10)
         else:
-            LoraBot.stop()
+            LBOT.stop()
     except:
         rospy.loginfo('url timeout')
 
@@ -102,9 +102,9 @@ def hex2dec(s):
 
 #controller method
 def controller():
-	global LoraBot
+	global LBOT
     #the callbacks earlier in the file will asynchronously update
-rospy.init_node('LoraBot')
+rospy.init_node('LBOT')
 
     ##if not (rospy.has_param(rospy.get_name()+'/rovioIP') and rospy.has_param(rospy.get_name()+'/rovioUser') and rospy.has_param(rospy.get_name()+'/rovioPass')):
     ##    rospy.logerr("Missing Parameters")
@@ -130,7 +130,7 @@ getPos=int(rospy.get_param(rospy.get_name()+'/getPos')) if rospy.has_param(rospy
 #pubOdom=rospy.Publisher('base_pose_ground_truth',Odometry)
 pubme=rospy.Publisher('mypubs',String)
 
-loraBot = LoraBot.LoraBot(1,2,3)
+LBOT = LowraBot.LowraBot(1,2,3)
 #rovioBot=Rovio.Rovio(rospy.get_param(rospy.get_name()+'/rovioIP'),rospy.get_param(rospy.get_name()+'/rovioIP'),rospy.get_param(rospy.get_name()+'/rovioUser'),rospy.get_param(rospy.get_name()+'/rovioPass'));
 rospy.Subscriber("cmd_vel", Twist, sendCommand)
 rospy.Subscriber("cmd_head", Int64, sendHeadCommand)
@@ -163,10 +163,10 @@ r= rospy.Rate(10)
 while not rospy.is_shutdown():
 	header=Header(seq=count,stamp=rospy.get_rostime(),frame_id=rospy.get_caller_id())
 	count=count+1
-	f = rovioBot.myvar()
+	f = LBOT.myvar()
 	pubme.publish(str(f))
 	try:
-		f = rovioBot.myvar()
+		f = LBOT.myvar()
 		if f > 0:
 			rospy.Publish("Joystick value" + String(f))
 

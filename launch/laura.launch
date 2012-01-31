@@ -1,5 +1,5 @@
 <launch>
-        <node pkg="rovio" name="rovio" type="Interface.py">
+        <node pkg="lowrabot" name="lowrabot" type="Int-laura.py">
             <param name="rovioIP" value="192.168.1.139" />
             <param name="rovioUser" value="admin" />
             <param name="rovioPass" value="penguins" />

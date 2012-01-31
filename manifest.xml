@@ -1,8 +1,6 @@
 <package>
   <description brief="lowrabot">
-
-     lowrabot
-
+    a home female entertainer robot capable of auto navigation and chatting
   </description>
   <author>ros</author>
   <license>BSD</license>
@@ -13,7 +11,11 @@
   <depend package="smach"/>
   <depend package="actionlib"/>
   <depend package="roscpp"/>
-
+  <depend package="tf"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="sensor_msgs"/>
+  <depend package="nav_msgs"/>  
 </package>
 
 
