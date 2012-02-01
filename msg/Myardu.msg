@@ -1,7 +1,7 @@
-uint16  ab_dir
-uint16  kk_dir
-uint16  ab_val
-uint16  kk_val
+uint16  mkn_dir
+uint16  mkr_dir
+uint16  mkn_val
+uint16  mkr_val
 uint16  joy1
 uint16  joy2
 uint16  joy3
