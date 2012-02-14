@@ -4,13 +4,13 @@ import struct
 
 
 class Myardu(roslib.message.Message):
-  _md5sum = "d80b48bb7b9460c12e4ef99c393aa5cb"
+  _md5sum = "167ba2f194cc8ae4cb45c5330f04a7c1"
   _type = "lowrabot/Myardu"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """uint16  ab_dir
-uint16  kk_dir
-uint16  ab_val
-uint16  kk_val
+  _full_text = """uint16  mkn_dir
+uint16  mkr_dir
+uint16  mkn_val
+uint16  mkr_val
 uint16  joy1
 uint16  joy2
 uint16  joy3
@@ -23,7 +23,7 @@ uint16  joy9
 uint16  joy10
 
 """
-  __slots__ = ['ab_dir','kk_dir','ab_val','kk_val','joy1','joy2','joy3','joy4','joy5','joy6','joy7','joy8','joy9','joy10']
+  __slots__ = ['mkn_dir','mkr_dir','mkn_val','mkr_val','joy1','joy2','joy3','joy4','joy5','joy6','joy7','joy8','joy9','joy10']
   _slot_types = ['uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16','uint16']
 
   def __init__(self, *args, **kwds):
@@ -34,7 +34,7 @@ uint16  joy10
     changes.  You cannot mix in-order arguments and keyword arguments.
     
     The available fields are:
-       ab_dir,kk_dir,ab_val,kk_val,joy1,joy2,joy3,joy4,joy5,joy6,joy7,joy8,joy9,joy10
+       mkn_dir,mkr_dir,mkn_val,mkr_val,joy1,joy2,joy3,joy4,joy5,joy6,joy7,joy8,joy9,joy10
     
     @param args: complete set of field values, in .msg order
     @param kwds: use keyword arguments corresponding to message field names
@@ -43,14 +43,14 @@ uint16  joy10
     if args or kwds:
       super(Myardu, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
-      if self.ab_dir is None:
-        self.ab_dir = 0
-      if self.kk_dir is None:
-        self.kk_dir = 0
-      if self.ab_val is None:
-        self.ab_val = 0
-      if self.kk_val is None:
-        self.kk_val = 0
+      if self.mkn_dir is None:
+        self.mkn_dir = 0
+      if self.mkr_dir is None:
+        self.mkr_dir = 0
+      if self.mkn_val is None:
+        self.mkn_val = 0
+      if self.mkr_val is None:
+        self.mkr_val = 0
       if self.joy1 is None:
         self.joy1 = 0
       if self.joy2 is None:
@@ -72,10 +72,10 @@ uint16  joy10
       if self.joy10 is None:
         self.joy10 = 0
     else:
-      self.ab_dir = 0
-      self.kk_dir = 0
-      self.ab_val = 0
-      self.kk_val = 0
+      self.mkn_dir = 0
+      self.mkr_dir = 0
+      self.mkn_val = 0
+      self.mkr_val = 0
       self.joy1 = 0
       self.joy2 = 0
       self.joy3 = 0
@@ -101,7 +101,7 @@ uint16  joy10
     """
     try:
       _x = self
-      buff.write(_struct_14H.pack(_x.ab_dir, _x.kk_dir, _x.ab_val, _x.kk_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10))
+      buff.write(_struct_14H.pack(_x.mkn_dir, _x.mkr_dir, _x.mkn_val, _x.mkr_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -116,7 +116,7 @@ uint16  joy10
       _x = self
       start = end
       end += 28
-      (_x.ab_dir, _x.kk_dir, _x.ab_val, _x.kk_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10,) = _struct_14H.unpack(str[start:end])
+      (_x.mkn_dir, _x.mkr_dir, _x.mkn_val, _x.mkr_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10,) = _struct_14H.unpack(str[start:end])
       return self
     except struct.error as e:
       raise roslib.message.DeserializationError(e) #most likely buffer underfill
@@ -132,7 +132,7 @@ uint16  joy10
     """
     try:
       _x = self
-      buff.write(_struct_14H.pack(_x.ab_dir, _x.kk_dir, _x.ab_val, _x.kk_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10))
+      buff.write(_struct_14H.pack(_x.mkn_dir, _x.mkr_dir, _x.mkn_val, _x.mkr_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10))
     except struct.error as se: self._check_types(se)
     except TypeError as te: self._check_types(te)
 
@@ -149,7 +149,7 @@ uint16  joy10
       _x = self
       start = end
       end += 28
-      (_x.ab_dir, _x.kk_dir, _x.ab_val, _x.kk_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10,) = _struct_14H.unpack(str[start:end])
+      (_x.mkn_dir, _x.mkr_dir, _x.mkn_val, _x.mkr_val, _x.joy1, _x.joy2, _x.joy3, _x.joy4, _x.joy5, _x.joy6, _x.joy7, _x.joy8, _x.joy9, _x.joy10,) = _struct_14H.unpack(str[start:end])
       return self
     except struct.error as e:
       raise roslib.message.DeserializationError(e) #most likely buffer underfill

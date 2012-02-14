@@ -137,16 +137,16 @@ void publishJoystick() {
   joystatus = "";
 
     if (AtasBawahMODE == HIGH){
-           myardu_msg.ab_dir = 1;
+           myardu_msg.mkn_dir = 1;
     } else {
-           myardu_msg.ab_dir = 0;}
+           myardu_msg.mkn_dir = 0;}
     if (KiriKananMODE == HIGH){
-           myardu_msg.kk_dir = 1;
+           myardu_msg.mkr_dir = 1;
     } else {
-           myardu_msg.kk_dir = 0;}
+           myardu_msg.mkr_dir = 0;}
     
-    myardu_msg.ab_val = PWMAtasBawah_val;
-    myardu_msg.kk_val = PWMKiriKanan_val;
+    myardu_msg.mkn_val = PWMAtasBawah_val;
+    myardu_msg.mkr_val = PWMKiriKanan_val;
     joystatus.print(",");    
    
 

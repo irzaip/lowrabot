@@ -16,6 +16,7 @@
   <depend package="cv_bridge"/>
   <depend package="sensor_msgs"/>
   <depend package="nav_msgs"/>  
+  <depend package="rosserial_arduino"/>
 </package>
 
 
