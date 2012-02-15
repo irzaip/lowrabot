@@ -382,6 +382,9 @@ class LowraBot:
     
     # Class constants
     mydata = ""
+    linear_mov = 0
+    angular_mov = 0
+
     # Data attributes (instance attributes)
     
     def get_protocol(self): return self._protocol
@@ -467,6 +470,22 @@ class LowraBot:
         self._speed = 1
         self._compile_URLs()
         lowrabots[self.name] = self
+
+    def set_linear_mov(self,data):
+        try:
+          self.linear_mov = data
+        except:
+           pass
+           return 0
+        return 1
+
+    def set_angular_mov(self,data):
+        try:
+          self.angular_mov = data
+        except:
+          pass
+          return 0
+        return 1
 
 
     def setmyvar(self,data):

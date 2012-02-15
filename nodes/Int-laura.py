@@ -104,12 +104,12 @@ def hex2dec(s):
 def controller():
 	global LBOT
     #the callbacks earlier in the file will asynchronously update
-rospy.init_node('LBOT')
+rospy.init_node('LowraBOT')
 
     ##if not (rospy.has_param(rospy.get_name()+'/rovioIP') and rospy.has_param(rospy.get_name()+'/rovioUser') and rospy.has_param(rospy.get_name()+'/rovioPass')):
     ##    rospy.logerr("Missing Parameters")
     ##    return
-rospy.loginfo("Startup..")    
+rospy.loginfo("Startup Arduino Data Reader Node")    
 
     ##getImage=int(rospy.get_param(rospy.get_name()+'/getImage')) if rospy.has_param(rospy.get_name()+'/getImage') else 0
 getPos=int(rospy.get_param(rospy.get_name()+'/getPos')) if rospy.has_param(rospy.get_name()+'/getPos') else 0
